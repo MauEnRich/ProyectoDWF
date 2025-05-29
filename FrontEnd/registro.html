@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro</title>
+  <link rel="stylesheet" href="css/registro.css">
+</head>
+<body>
+  <h1>Registro</h1>
+  <form id="registroForm">
+    <select id="tipo">
+      <option value="estudiante">Estudiante</option>
+      <option value="profesor">Profesor</option>
+    </select><br>
+    <input type="text" id="nombre" placeholder="Nombre" required><br>
+    <input type="text" id="apellido" placeholder="Apellido" required><br>
+    <input type="email" id="email" placeholder="Correo" required><br>
+    <input type="password" id="contrasena" placeholder="Contraseña" required><br>
+    <button type="submit">Registrarse</button>
+  </form>
+  <p><a href="index.html">Volver al login</a></p>
+
+  <script src="js/registro.js"></script>
+</body>
+</html>

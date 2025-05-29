@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Materias Asignadas</title>
+  <link rel="stylesheet" href="css/profesor.css" />
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="profesor.html" class="activo">Materias</a></li>
+      <li><a href="crearEvaluacion.html">Evaluaciones</a></li>
+    </ul>
+    <button id="btnCerrarSesion">Cerrar sesión</button>
+  </nav>
+
+  <h1>Materias Asignadas</h1>
+
+  <div id="mensaje"></div>
+
+  <table id="tablaMaterias" border="1">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Profesor</th>
+        <th>Estudiantes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Aquí se cargarán las materias dinámicamente -->
+    </tbody>
+  </table>
+
+  <script src="js/profesor.js"></script>
+</body>
+</html>
