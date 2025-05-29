@@ -40,7 +40,7 @@ public class EvaluacionNotaController {
             return ResponseEntity.badRequest().body("Materia no encontrada");
         }
 
-        // 🔐 Asegurar que la materia pertenece al profesor
+        // Validar que el profesor tenga acceso
         if (!materia.getProfesor().getId().equals(dto.getProfesorId())) {
             return ResponseEntity.status(403).body("No tienes permiso para crear evaluaciones en esta materia");
         }
@@ -60,6 +60,7 @@ public class EvaluacionNotaController {
 
         return ResponseEntity.ok(respuesta);
     }
+
 
 
     @PostMapping("/notas")
