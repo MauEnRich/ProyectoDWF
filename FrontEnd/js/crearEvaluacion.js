@@ -36,13 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             document.getElementById('resultado').innerHTML = `
-                <p>Evaluación creada con éxito:</p>
-                <ul>
-                    <li>ID: ${data.id}</li>
-                    <li>Nombre: ${data.nombre}</li>
-                    <li>Fecha: ${data.fecha}</li>
-                    <li>Materia: ${data.materiaNombre}</li>
-                </ul>
+            
             `;
             document.getElementById('evaluacionForm').reset();
             cargarEvaluaciones();
@@ -54,21 +48,34 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function cargarMaterias() {
-    fetch('http://localhost:8080/api/profesor/materias')
-    .then(response => response.json())
-    .then(materias => {
-        const select = document.getElementById('materiaId');
-        materias.forEach(materia => {
-            const option = document.createElement('option');
-            option.value = materia.id;
-            option.textContent = materia.nombre;
-            select.appendChild(option);
+    const profesorId = sessionStorage.getItem('profesorId');
+
+    if (!profesorId) {
+        console.error('No se encontró el ID del profesor en sessionStorage');
+        return;
+    }
+
+    fetch(`http://localhost:8080/api/profesor/${profesorId}/materias`)
+        .then(response => {
+            if (!response.ok) throw new Error('Error al obtener materias del profesor');
+            return response.json();
+        })
+        .then(materias => {
+            const select = document.getElementById('materiaId');
+            select.innerHTML = ''; // Limpiar opciones anteriores
+
+            materias.forEach(materia => {
+                const option = document.createElement('option');
+                option.value = materia.id;
+                option.textContent = materia.nombre;
+                select.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error('Error al cargar materias del profesor:', error);
         });
-    })
-    .catch(error => {
-        console.error('Error al cargar materias:', error);
-    });
 }
+
 
 function cargarEvaluaciones() {
     const profesorId = sessionStorage.getItem('profesorId');
@@ -161,7 +168,8 @@ function enviarNota() {
     });
 }
 
-function cerrarSesion() {
+  document.getElementById('btnCerrarSesion').addEventListener('click', () => {
     sessionStorage.clear();
     window.location.href = 'index.html';
-}
+  });
+

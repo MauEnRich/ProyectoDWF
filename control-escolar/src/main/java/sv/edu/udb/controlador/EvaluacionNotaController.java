@@ -40,13 +40,17 @@ public class EvaluacionNotaController {
             return ResponseEntity.badRequest().body("Materia no encontrada");
         }
 
+        // 🔐 Asegurar que la materia pertenece al profesor
+        if (!materia.getProfesor().getId().equals(dto.getProfesorId())) {
+            return ResponseEntity.status(403).body("No tienes permiso para crear evaluaciones en esta materia");
+        }
+
         Evaluacion evaluacion = new Evaluacion();
         evaluacion.setNombre(dto.getNombre());
         evaluacion.setFecha(dto.getFecha());
         evaluacion.setMateria(materia);
 
         Evaluacion saved = evaluacionRepository.save(evaluacion);
-
 
         EvaluacionRespuestaDTO respuesta = new EvaluacionRespuestaDTO();
         respuesta.setId(saved.getId());
