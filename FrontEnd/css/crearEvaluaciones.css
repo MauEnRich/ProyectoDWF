@@ -1,0 +1,276 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  color: #fff;
+  padding: 20px;
+}
+
+/* Barra de navegación */
+nav {
+  max-width: 400px;
+  height: 80px;
+  margin: 0 auto 30px auto;
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #00bfff;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.activo {
+  background-color: #00bfff;
+  color: #fff;
+}
+
+/* Botón de cerrar sesión dentro del nav */
+nav button {
+  background-color: #ff4b5c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+nav button:hover {
+  background-color: #e60023;
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Formulario */
+form#evaluacionForm {
+  max-width: 600px;
+  background-color: #ffffff;
+  color: #333;
+  margin: 0 auto 30px auto;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form#evaluacionForm label {
+  font-weight: 600;
+}
+
+form#evaluacionForm input[type="text"],
+form#evaluacionForm input[type="date"],
+form#evaluacionForm select {
+  padding: 10px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form#evaluacionForm input[type="text"]:focus,
+form#evaluacionForm input[type="date"]:focus,
+form#evaluacionForm select:focus {
+  outline: none;
+  border-color: #00bfff;
+}
+
+/* Botón submit del formulario */
+form#evaluacionForm button[type="submit"] {
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form#evaluacionForm button[type="submit"]:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Contenedor resultado */
+#resultado {
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+  font-style: italic;
+  font-size: 1.1rem;
+  min-height: 24px; /* para que no salte al cargar */
+}
+
+/* Tabla de evaluaciones */
+table#tablaEvaluaciones {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  background-color: #ffffff;
+  color: #333;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+table#tablaEvaluaciones th,
+table#tablaEvaluaciones td {
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+table#tablaEvaluaciones th {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+table#tablaEvaluaciones tr:last-child td {
+  border-bottom: none;
+}
+
+/* Modal para ingresar nota */
+#modalNota {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: none; /* Se muestra solo con JS */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#modalContenido {
+  background-color: #fff;
+  color: #333;
+  border-radius: 12px;
+  padding: 30px 40px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#modalContenido h3 {
+  margin-bottom: 15px;
+  color: #007bff;
+  text-align: center;
+}
+
+#modalContenido label {
+  font-weight: 600;
+}
+
+#modalContenido input[type="number"] {
+  padding: 10px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+#modalContenido input[type="number"]:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+#modalContenido button {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#modalContenido button:hover {
+  background-color: #0056b3;
+}
+
+#modalContenido button:last-child {
+  background-color: #ccc;
+  color: #333;
+  margin-top: 8px;
+}
+
+#modalContenido button:last-child:hover {
+  background-color: #999;
+}
+
+#mensajeNota {
+  font-style: italic;
+  font-size: 1rem;
+  color: green;
+  text-align: center;
+  min-height: 22px;
+}
+
+.btn-calificar {
+  padding: 12px;
+  background-color: #007bff;       /* Mismo azul que el submit */
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-calificar:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}

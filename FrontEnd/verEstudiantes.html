@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estudiantes Inscritos</title>
+  <link rel="stylesheet" href="css/verEstudiantes.css" />
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="profesor.html">Materias</a></li>
+      <li><a href="crearEvaluacion.html">Evaluaciones</a></li>
+    </ul>
+    <button id="btnCerrarSesion">Cerrar sesión</button>
+  </nav>
+
+  <h1>Estudiantes Inscritos en la Materia</h1>
+
+  <div id="mensaje"></div>
+
+  <table id="tablaEstudiantes" border="1">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Datos cargados dinámicamente -->
+    </tbody>
+  </table>
+
+  <button id="btnRegresar">Regresar</button>
+
+  <script src="js/verEstudiantes.js"></script>
+</body>
+</html>
