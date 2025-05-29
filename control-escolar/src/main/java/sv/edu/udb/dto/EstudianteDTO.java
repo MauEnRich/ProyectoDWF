@@ -30,7 +30,6 @@ public class EstudianteDTO {
         return email;
     }
 
-    // Setters
     public void setId(Long id) {
         this.id = id;
     }
