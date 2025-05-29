@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tbody.appendChild(fila);
       });
     })
+    
     .catch(error => {
       console.error(error);
       alert('No se pudo cargar el horario');
